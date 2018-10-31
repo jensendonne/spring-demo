@@ -17,8 +17,8 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
 		converters.add(new MyHttpMessageConverter());
 	}
 	
-	@Override
-	public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> handlers) {
-	    handlers.add(new MyReturnValueHandler());
-	}
+//	@Override
+//	public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> handlers) {
+//	    handlers.add(new MyReturnValueHandler());
+//	}
 }

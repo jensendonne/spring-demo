@@ -16,18 +16,18 @@ import com.jensen.demo.springdemo.annotation.Liuyali;
  *
  */
 public class MyReturnValueHandler implements HandlerMethodReturnValueHandler {
-
-    @Override
-    public boolean supportsReturnType(MethodParameter returnType) {
-	return (AnnotatedElementUtils.hasAnnotation(returnType.getContainingClass(), Liuyali.class) ||
-		returnType.hasMethodAnnotation(Liuyali.class));
-    }
-
-    @Override
-    public void handleReturnValue(Object returnValue, MethodParameter returnType, ModelAndViewContainer mavContainer,
-	    NativeWebRequest webRequest) throws Exception {
-	mavContainer.setRequestHandled(true);
 	
-    }
-
+	@Override
+	public boolean supportsReturnType(MethodParameter returnType) {
+		return (AnnotatedElementUtils.hasAnnotation(returnType.getContainingClass(), Liuyali.class)
+				|| returnType.hasMethodAnnotation(Liuyali.class));
+	}
+	
+	@Override
+	public void handleReturnValue(Object returnValue, MethodParameter returnType, ModelAndViewContainer mavContainer,
+			NativeWebRequest webRequest) throws Exception {
+		mavContainer.setRequestHandled(true);
+		
+	}
+	
 }
