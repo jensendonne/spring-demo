@@ -100,7 +100,7 @@ public class MyHttpMessageConverter extends AbstractHttpMessageConverter<Object>
 		JsonEncoding encoding = getJsonEncoding(contentType);
 		JsonGenerator generator = this.objectMapper.getFactory().createGenerator(outputMessage.getBody(), encoding);
 		try {
-			writePrefix(generator, object);
+//			writePrefix(generator, object);
 
 			Object value = object;
 			Class<?> serializationView = null;
@@ -132,7 +132,7 @@ public class MyHttpMessageConverter extends AbstractHttpMessageConverter<Object>
 			}
 			objectWriter.writeValue(generator, value);
 
-			writeSuffix(generator, object);
+//			writeSuffix(generator, object);
 			generator.flush();
 		}
 		catch (InvalidDefinitionException ex) {
