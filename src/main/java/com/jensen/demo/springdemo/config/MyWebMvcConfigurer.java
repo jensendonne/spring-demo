@@ -26,7 +26,7 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
 	
 	@Override
 	public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> handlers) {
-	    handlers.add(returnValueHandler);
+		handlers.add(0, returnValueHandler);
 	}
 	
 //	@Bean
