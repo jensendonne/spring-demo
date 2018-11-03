@@ -19,6 +19,7 @@ import org.springframework.http.converter.json.AbstractJackson2HttpMessageConver
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Component;
 import org.springframework.util.TypeUtils;
 
 import com.fasterxml.jackson.core.JsonEncoding;
@@ -38,6 +39,7 @@ import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.jensen.demo.springdemo.annotation.Liuyali;
 
+@Component
 public class MyHttpMessageConverter extends AbstractHttpMessageConverter<Object> {
 	
 	public static final Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;

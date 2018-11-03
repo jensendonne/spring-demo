@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jensen.demo.springdemo.annotation.Liuyali;
 import com.jensen.demo.springdemo.vo.Info;
 
 @Controller
@@ -15,7 +16,8 @@ import com.jensen.demo.springdemo.vo.Info;
 public class QueryController {
 	
 	@GetMapping("/info")
-	@ResponseBody
+//	@ResponseBody
+	@Liuyali
 	public Info getInfo() {
 		Info info = new Info();
 		info.setName("dzs");
