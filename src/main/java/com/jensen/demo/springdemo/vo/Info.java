@@ -2,11 +2,12 @@ package com.jensen.demo.springdemo.vo;
 
 import java.math.BigDecimal;
 
-import com.jensen.demo.springdemo.annotation.Liuyali;
+import com.alibaba.fastjson.annotation.JSONField;
+import com.jensen.demo.springdemo.utils.BigDecimalSerializer;
 
-@Liuyali
 public class Info {
     private String name;
+    @JSONField(serializeUsing = BigDecimalSerializer.class)
     private BigDecimal amount;
 
     public String getName() {

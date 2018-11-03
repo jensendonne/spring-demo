@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.jensen.demo.springdemo.vo.Info;
 
@@ -19,7 +18,7 @@ public class QueryController {
 	public Info getInfo() {
 		Info info = new Info();
 		info.setName("dzs");
-		info.setAmount(new BigDecimal("5.20"));
+		info.setAmount(new BigDecimal("5.00"));
 		return info;
 	}
 }
