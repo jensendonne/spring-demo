@@ -13,6 +13,7 @@ import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
+import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServletServerHttpRequest;
 import org.springframework.http.server.ServletServerHttpResponse;
@@ -61,7 +62,7 @@ public class MyReturnValueHandler implements HandlerMethodReturnValueHandler {
 //			}
 //			break;
 //		}
-		converter.write(returnValue, null, outputMessage);
+		converter.write(returnValue, MediaType.APPLICATION_JSON_UTF8, outputMessage);
 	}
 
 	/**
