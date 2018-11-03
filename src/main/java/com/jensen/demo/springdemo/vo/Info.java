@@ -7,7 +7,7 @@ import com.jensen.demo.springdemo.utils.BigDecimalSerializer;
 
 public class Info {
     private String name;
-    @JSONField(serializeUsing = BigDecimalSerializer.class)
+//    @JSONField(serializeUsing = BigDecimalSerializer.class)
     private BigDecimal amount;
 
     public String getName() {
