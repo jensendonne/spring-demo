@@ -2,9 +2,6 @@ package com.jensen.demo.springdemo.vo;
 
 import java.math.BigDecimal;
 
-import com.jensen.demo.springdemo.annotation.Liuyali;
-
-@Liuyali
 public class Info {
     private String name;
     private BigDecimal amount;
