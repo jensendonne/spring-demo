@@ -23,6 +23,7 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
 	private MappingJackson2HttpMessageConverter getMappingJackson2HttpMessageConverter() {
 		ObjectMapper objectMapper = new ObjectMapper();
 		SimpleModule simpleModule = new SimpleModule();
+		// 自定义某种类型的序列化器
 		simpleModule.addSerializer(BigDecimal.class, ToStringSerializer.instance);
 		objectMapper.registerModule(simpleModule);
 		MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter(objectMapper);
