@@ -62,6 +62,7 @@ public class MyReturnValueHandler implements HandlerMethodReturnValueHandler {
 //			}
 //			break;
 //		}
+		System.out.println(returnValue.getClass().getName());
 		converter.write(returnValue, MediaType.APPLICATION_JSON_UTF8, outputMessage);
 	}
 
