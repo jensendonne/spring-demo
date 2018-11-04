@@ -14,7 +14,7 @@ import com.jensen.demo.springdemo.vo.Info;
 public class QueryController {
 	
 	@GetMapping("/info")
-	@Liuyali
+	@Liuyali(accuracy = 3)
 	// 需要去掉@ResponseBody注解
 	public Info getInfo() {
 		Info info = new Info();
