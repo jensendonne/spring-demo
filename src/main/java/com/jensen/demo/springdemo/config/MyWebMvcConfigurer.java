@@ -1,36 +1,31 @@
 package com.jensen.demo.springdemo.config;
 
+import java.math.BigDecimal;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import com.jensen.demo.springdemo.web.converter.MyHttpMessageConverter;
-import com.jensen.demo.springdemo.web.handler.MyReturnValueHandler;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 @Configuration
 public class MyWebMvcConfigurer implements WebMvcConfigurer {
-	
-	@Autowired
-	private MyHttpMessageConverter converter;
-	@Autowired
-	private MyReturnValueHandler returnValueHandler;
-	
+
 	@Override
 	public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-		converters.add(converter);
+		converters.add(0, getMappingJackson2HttpMessageConverter());
 	}
-	
-	@Override
-	public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> handlers) {
-		handlers.add(0, returnValueHandler);
+
+	private MappingJackson2HttpMessageConverter getMappingJackson2HttpMessageConverter() {
+		ObjectMapper objectMapper = new ObjectMapper();
+		SimpleModule simpleModule = new SimpleModule();
+		simpleModule.addSerializer(BigDecimal.class, ToStringSerializer.instance);
+		objectMapper.registerModule(simpleModule);
+		MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter(objectMapper);
+		return converter;
 	}
-	
-//	@Bean
-//	public MyHttpMessageConverter myHttpMessageConverter() {
-//		return new MyHttpMessageConverter();
-//	}
 }
